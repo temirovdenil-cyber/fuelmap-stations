@@ -1,0 +1,122 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FuelMap - Stations-service</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <aside class="sidebar">
+
+            <header class="brand">
+                <div class="brand-logo">F</div>
+                <div>
+                    <h1>FUELMAP</h1>
+                    <p>EXPLORATEUR DE STATIONS</p>
+                </div>
+            </header>
+
+            <div class="sidebar-content">
+
+                <section class="intro">
+                    <span class="eyebrow">CARTE INTERACTIVE</span>
+                    <h2>Trouvez votre<br><span>station-service.</span></h2>
+                    <p>Explorez les stations et consultez les prix des carburants.</p>
+                </section>
+
+                <div class="stat-card">
+                    <div>
+                        <span class="stat-label">STATIONS AFFICHÉES</span>
+                        <strong id="stationCount">Chargement...</strong>
+                    </div>
+                    <div class="stat-icon">⌖</div>
+                </div>
+
+                <section class="search-section">
+                    <label for="searchInput">RECHERCHER</label>
+                    <div class="search-box">
+                        <span>⌕</span>
+                        <input
+                            type="text"
+                            id="searchInput"
+                            placeholder="Ville, station, code postal..."
+                        >
+                    </div>
+                </section>
+
+                <section class="filters-section">
+                    <div class="section-heading">
+                        <label>CARBURANT</label>
+                        <button id="resetFilters">Réinitialiser</button>
+                    </div>
+
+                    <div class="filters">
+                        <button class="filter-btn active" data-fuel="all">Tous</button>
+                        <button class="filter-btn" data-fuel="price_gazole">Gazole</button>
+                        <button class="filter-btn" data-fuel="price_sp95">SP95</button>
+                        <button class="filter-btn" data-fuel="price_sp98">SP98</button>
+                        <button class="filter-btn" data-fuel="price_e10">E10</button>
+                        <button class="filter-btn" data-fuel="price_e85">E85</button>
+                        <button class="filter-btn" data-fuel="price_gplc">GPL</button>
+                    </div>
+                </section>
+
+                <section class="stations-section">
+                    <div class="section-heading">
+                        <label>LISTE DES STATIONS</label>
+                        <span id="resultCount">0 résultat</span>
+                    </div>
+
+                    <div id="stationList" class="station-list">
+                        <div class="loading">Chargement des stations...</div>
+                    </div>
+                </section>
+
+            </div>
+
+            <footer class="sidebar-footer">
+                <span class="status-dot"></span>
+                Données locales · OpenStreetMap
+            </footer>
+
+        </aside>
+
+        <main class="map-container">
+
+            <div class="map-topbar">
+                <div class="map-location">
+                    <span class="location-dot"></span>
+                    <span>FRANCE</span>
+                    <span class="separator">/</span>
+                    <span>CARTE DES CARBURANTS</span>
+                </div>
+
+                <button id="resetMap" class="map-button">
+                    Recentrer la carte
+                </button>
+            </div>
+
+            <div id="map"></div>
+<div class="map-legend">
+<span class="legend-marker"></span>
+                Station-service
+            </div>
+            <div id="stationPanel" class="station-detail hidden"></div>
+            <div class="map-coordinates">FUELMAP · INTERACTIVE MAP</div>
+
+        </main>
+
+    </div>
+ <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>
